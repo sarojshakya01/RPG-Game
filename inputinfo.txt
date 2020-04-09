@@ -1,0 +1,28 @@
+Character #1 type (e.g. Barbarian)
+Name: Ram
+Race: Human
+Level: 10
+Health: 100
+Stamina: 10
+Weapon Name: Sword
+Weapon Damage: 8
+Weapon Stamina_cost: 5
+
+Character #2 type (e.g. Mage)
+Name: Hari
+Race: Human
+Level: 10
+Health: 50
+Mana: 10
+numOfSpells: 10
+Spell #1&#39;s Name: Fireball
+Spell #1&#39;s Damage: 5
+Spell #1&#39;s Mana_Cost: 7
+
+Spell #2&#39;s Name: Waterfall
+Spell #2&#39;s Damage: 6
+Spell #2&#39;s Mana_Cost: 6
+
+Spell #2&#39;s Name: Earthball
+Spell #2&#39;s Damage: 5
+Spell #2&#39;s Mana_Cost: 9
