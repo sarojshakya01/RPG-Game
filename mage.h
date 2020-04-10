@@ -4,34 +4,34 @@
 
 using namespace std;
 
-typedef struct spell {
+struct spell {
 	string name;
-	int damage, mana_cost;
-}spell;
+	int damage;
+	int mana_cost;
+};
 
 class Mage : public Character {
-	private:
-	int mana, numberOfSpells, active_Spell;
+private:
 	spell spells[10];
+	int numberOfSpells = 0;
+	int mana = 100;
+	int active_Spell = 0;
 
-	public:
-	Mage();
+public:
+	//constructors
 	Mage(string, string, int, int, int);
 
-	int getMana();
+	//getters
+	int getMana() const;
 
-	void updateMana(int);
+	//setters
+	void setMana(int);
 
+	//other functions
 	int AddSpell(string, int, int);
-
 	void nextSpell();
-
 	void Attack(Character *);
-
 	void Print();
-
-	~Mage();
-
 };
 
 #endif

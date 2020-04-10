@@ -4,35 +4,31 @@
 
 using namespace std;
 
-typedef struct weapon {
-	string name;
-	int damage, stamina_cost;
-}weapon;
+struct weapon {
+	string name = "";
+	int damage = 0;
+	int stamina_cost = 0;
+};
 
 class Barbarian : public Character {
-	private:
-	int stamina;
+private:
 	weapon active_weapon;
+	int stamina = 100;
 
-	public:
-	Barbarian();
-
+public:
+	//constructors
 	Barbarian(string, string, int, int, int);
 
-	int getStamina();
+	//getters
+	int getStamina() const;
 
-	int getDamage();
+	//setters
+	void setStamina(int);
 
-	void updateStamina(int);
-
+	//other functions
 	void EquipWeapon(string, int, int);
-
 	void Attack(Character *);
-
 	void Print();
-
-	~Barbarian();
-
 };
 
 #endif

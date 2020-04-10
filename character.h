@@ -4,37 +4,31 @@
 using namespace std;
 
 class Character {
-	private:
-	string name, race;
-	int level, health;
+private:
+	string name;
+	string race;
+	int level;
+	int health;
 
-	public:
-	Character();
-
+public:
+	//constructors
 	Character(string, string, int, int);
 
-	string getName();
+	//getter functions
+	string getName() const;
+	string getRace() const;
+	int getLevel() const;
+	int getHealth() const;
 
-	string getRace();
+	//setter functions
+	void setName(string);
+	void setRace(string);
+	void setLevel(int);
+	void setHealth(int);
 
-	int getLevel();
-
-	int getHealth();
-
-	void updateName(string);
-
-	void updateRace(string);
-
-	void updateLevel(int);
-
-	void updateHealth(int);
-
-	virtual void Attack(Character *);
-
+	//other functions
+	virtual void Attack(Character *) = 0;
 	virtual void Print();
-
-	~Character();
-
 };
 
 #endif

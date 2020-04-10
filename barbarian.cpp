@@ -1,37 +1,37 @@
-#include<iostream>
-#include <string.h>
+//include the necessary header files
+#include <iostream>
+#include <string>
 #include "barbarian.h"
 
 using namespace std;
 
-Barbarian :: Barbarian() {
-	;
-}
-
+//implement constructors
 Barbarian :: Barbarian(string name, string race, int level, int health, int stamina) :
 	Character(name, race, level, health), stamina(stamina) {}
 
-inline int Barbarian :: getStamina() {
+//implement getter functions
+int Barbarian :: getStamina() const {
 	return this->stamina;
 }
 
-inline int Barbarian :: getDamage() {
-	return this->active_weapon.damage;
-}
-
-inline void Barbarian :: updateStamina(int stamina) {
+//implement setter functions
+void Barbarian :: setStamina(int stamina) {
 	this->stamina = stamina;
 }
 
+//other funtion implementations
 void Barbarian :: EquipWeapon(string name, int damage, int stamina_cost) {
-	weapon temp_weapon = {name, damage, stamina_cost};
+	weapon temp_weapon;
+	temp_weapon.name = name;
+	temp_weapon.damage = damage;
+	temp_weapon.stamina_cost = stamina_cost;
 	this->active_weapon = temp_weapon;
 }
 
 void Barbarian :: Attack(Character * target) {
 	int currHealth = target->getHealth();
-	currHealth = currHealth-this->active_weapon.damage;
-	this->updateHealth(currHealth);
+	currHealth = currHealth - (this->active_weapon.damage);
+	this->setHealth(currHealth);
 
 	if (this->active_weapon.name == ""){
 		cout << "Barbarian has no weapon!" << endl;
@@ -48,8 +48,4 @@ void Barbarian :: Attack(Character * target) {
 void Barbarian :: Print() {
 	cout << "Weapon: " << this->active_weapon.name << endl;
 	cout << "---" << endl;
-}
-
-Barbarian :: ~Barbarian() {
-	;
 }

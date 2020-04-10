@@ -4,29 +4,25 @@
 
 using namespace std;
 
-int main();
-
 class Game {
-	private:
+private:
 	Character *players[2];
-	int current_turn, num_of_characters;
+	int current_turn;
+	int num_of_characters;
 
-	public:
+public:
+	//constructors
 	Game();
 
+	//getters
 	int getTurn();
-
 	int getCharacters();
 
+	//other functions
 	void RemoveCharacter(int);
-
 	void AddCharacter(Character *);
-
 	void NextTurn();
-
 	void Print();
-	~Game();
-
 };
 
 #endif

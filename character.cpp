@@ -1,13 +1,11 @@
+//include the necessary header files
 #include <iostream>
-#include <string.h>
+#include <string>
 #include "character.h"
 
 using namespace std;
 
-Character :: Character() {
-	;
-}
-
+//implement constructors
 Character :: Character(string name, string race, int level, int health) {
 	this->name = name;
 	this->race = race;
@@ -15,50 +13,47 @@ Character :: Character(string name, string race, int level, int health) {
 	this->health = health;
 }
 
-string Character :: getName() {
+
+//implement getter functions
+string Character :: getName() const {
 	return name;
 }
 
-string Character :: getRace() {
+string Character :: getRace() const {
 	return race;
 }
 
-int Character :: getLevel() {
+int Character :: getLevel() const {
 	return level;
 }
 
-int Character :: getHealth() {
+int Character :: getHealth() const {
 	return health;
 }
 
-void Character :: updateName(string name) {
+
+//implement setter functions
+void Character :: setName(string name) {
 	this->name = name;
 }
 
-void Character :: updateRace(string race) {
+void Character :: setRace(string race) {
 	this->race = race;
 }
 
-void Character :: updateLevel(int leve) {
+void Character :: setLevel(int leve) {
 	this->level = leve;
 }
 
-void Character :: updateHealth(int health) {
+void Character :: setHealth(int health) {
 	this->health = health;
 }
 
-void Character :: Attack(Character *){
-
-}
-
+//implement Print function
 void Character :: Print() {
 	cout << "Character Status:" << endl;
 	cout << "Name: " << this->name << endl;
 	cout << "Race: " << this->race << endl;
 	cout << "Level: " << this->level << endl;
 	cout << "Health: " << this->health << endl;
-}
-
-Character :: ~Character() {
-	;
 }

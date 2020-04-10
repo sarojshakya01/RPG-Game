@@ -1,28 +1,25 @@
 #include<iostream>
-#include <string.h>
+#include <string>
 #include <typeinfo>
 #include "mage.h"
 #include "barbarian.h"
 
 using namespace std;
 
-Mage :: Mage() {
-	;
-}
+//implement constructors
+Mage :: Mage(string name, string race, int level, int health, int mana) : Character(name, race, level, health), mana(mana) {}
 
-Mage :: Mage(string name, string race, int level, int health, int mana) :
-	Character(name, race, level, health), mana(mana) {
-		numberOfSpells = 0;
-	}
-
-inline int Mage :: getMana() {
+//implement getter functions
+int Mage :: getMana() const {
 	return mana;
 }
 
-inline void Mage :: updateMana(int mana) {
+//implement setter functions
+void Mage :: setMana(int mana) {
 	this->mana = mana;
 }
 
+//other funtion implementations
 int Mage :: AddSpell(string spell_name, int spell_damage, int mana_cost) {
 	if (numberOfSpells < 10) {
 		spell temp_spell = {spell_name, spell_damage, mana_cost};
@@ -46,7 +43,7 @@ void Mage :: nextSpell() {
 void Mage :: Attack(Character *target) {
 	int currHealth = target->getHealth();
 	currHealth = currHealth - (this->spells[this->active_Spell].damage);
-	this->updateHealth(currHealth);
+	this->setHealth(currHealth);
 
 	if (this->numberOfSpells == 0) {
 		cout << "Mage has no spells!" << endl;
@@ -69,8 +66,4 @@ void Mage :: Print() {
 		cout << this->spells[i].name << endl;
 	}
 	cout << "---" << endl;
-}
-
-Mage :: ~Mage() {
-	;
 }

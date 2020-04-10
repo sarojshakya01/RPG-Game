@@ -1,5 +1,5 @@
 #include<iostream>
-#include <string.h>
+#include <string>
 #include "game.h"
 
 using namespace std;
@@ -10,11 +10,11 @@ Game :: Game () {
 	}
 }
 
-inline int Game :: getTurn() {
+int Game :: getTurn() {
 	return current_turn;
 }
 
-inline int Game :: getCharacters() {
+int Game :: getCharacters() {
 	return num_of_characters;
 }
 
@@ -43,12 +43,8 @@ void Game :: AddCharacter(Character *character) {
 		if (this->players[i] == NULL && this->players[i] != character) {
 
 			this->players[i] = character;
-			cout << "Character " << character->getName() << " added!" << endl;
 			break;
 
-		} else if (this->players[i] == character) {
-			cout << "Character " << character->getName() << " already added!" << endl;
-			break;
 		}
 	}
 
@@ -73,8 +69,6 @@ void Game :: NextTurn() {
 			if (this->players[0]->getHealth() < 0) {
 				cout << "Players two wins!" << endl;
 				std::exit(1);
-			} else {
-				// main();
 			}
 		}
 	}
@@ -87,8 +81,4 @@ void Game :: Print() {
 			this->players[i]->Print();
 		}
 	}
-}
-
-Game :: ~Game() {
-	;
 }
