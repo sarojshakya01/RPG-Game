@@ -23,7 +23,7 @@ public:
 	int getStamina() const;
 
 	//setters
-	void setStamina(int);
+	void SetStamina(int);
 
 	//other functions
 	void EquipWeapon(string, int, int);

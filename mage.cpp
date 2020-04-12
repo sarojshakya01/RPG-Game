@@ -41,26 +41,37 @@ void Mage :: nextSpell() {
 }
 
 void Mage :: Attack(Character *target) {
+
 	int currHealth = target->getHealth();
+	int currMana = this->getMana();
 	currHealth = currHealth - (this->spells[this->active_Spell].damage);
-	this->setHealth(currHealth);
+	currMana = currMana - (this->spells[this->active_Spell].mana_cost);
+	target->SetHealth(currHealth);
+	this->setMana(currMana);
 
 	if (this->numberOfSpells == 0) {
 		cout << "Mage has no spells!" << endl;
 	} else {
-		cout << this->getName() << " attacked " << target->getName() << " with a " 
-		 	 << this->spells[this->active_Spell].name << ", dealing " << this->spells[this->active_Spell].damage << " damage" << endl;
+		cout << this->getName() << " attacked " << target->getName() << " with spell: " 
+		 	 << this->spells[this->active_Spell].name << ", dealing " << this->spells[this->active_Spell].damage << " damage." << endl;
+	}
+
+	if ((this-> mana) < (this->spells[this->active_Spell].mana_cost)) {
+		cout << "Insufficient mana points!" << endl;
 	}
 
 	this->nextSpell();
 
-	if ((this-> mana) > (this->spells[this->active_Spell].mana_cost)) {
-		cout << "Insufficient mana points!" << endl;
-	}
 }
 
 void Mage :: Print() {
 
+	cout << "Character Status:" << endl;
+	cout << "Name: " << this->getName() << endl;
+	cout << "Race: " << this->getRace() << endl;
+	cout << "Level: " << this->getLevel() << endl;
+	cout << "Health: " << this->getHealth() << endl;
+	// cout << "Mana: " << this->mana << endl;
 	cout << "Spells: " << endl;
 	for(int i = 0; i < numberOfSpells; i++) {
 		cout << this->spells[i].name << endl;

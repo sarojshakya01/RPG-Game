@@ -5,7 +5,7 @@ Orc
 90
 50
 Club
-15
+24
 10
 
 Mage

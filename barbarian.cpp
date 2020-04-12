@@ -15,7 +15,7 @@ int Barbarian :: getStamina() const {
 }
 
 //implement setter functions
-void Barbarian :: setStamina(int stamina) {
+void Barbarian :: SetStamina(int stamina) {
 	this->stamina = stamina;
 }
 
@@ -29,23 +29,34 @@ void Barbarian :: EquipWeapon(string name, int damage, int stamina_cost) {
 }
 
 void Barbarian :: Attack(Character * target) {
+
 	int currHealth = target->getHealth();
+	int currStamina = this->getStamina();
 	currHealth = currHealth - (this->active_weapon.damage);
-	this->setHealth(currHealth);
+	currStamina = currStamina - (this->active_weapon.stamina_cost);
+	target->SetHealth(currHealth);
+	this->SetStamina(currStamina);
 
 	if (this->active_weapon.name == ""){
 		cout << "Barbarian has no weapon!" << endl;
 	} else {
 		cout << this->getName() << " attacked " << target->getName() << " with a " 
-		 	 << this->active_weapon.name << ", dealing " << this->active_weapon.damage << " damage" << endl;
+		 	 << this->active_weapon.name << ", dealing " << this->active_weapon.damage << " damage." << endl;
 	}
 
-	if ((this-> stamina) > (this->active_weapon.stamina_cost)) {
+	if ((this-> stamina) < (this->active_weapon.stamina_cost)) {
 		cout << "Insufficient stamina points!" << endl;
 	}
+
 }
 
 void Barbarian :: Print() {
+	cout << "Character Status:" << endl;
+	cout << "Name: " << this->getName() << endl;
+	cout << "Race: " << this->getRace() << endl;
+	cout << "Level: " << this->getLevel() << endl;
+	cout << "Health: " << this->getHealth() << endl;
+	// cout << "Stamina: " << this->stamina << endl;
 	cout << "Weapon: " << this->active_weapon.name << endl;
 	cout << "---" << endl;
 }

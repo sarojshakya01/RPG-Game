@@ -33,19 +33,19 @@ int Character :: getHealth() const {
 
 
 //implement setter functions
-void Character :: setName(string name) {
+void Character :: SetName(string name) {
 	this->name = name;
 }
 
-void Character :: setRace(string race) {
+void Character :: SetRace(string race) {
 	this->race = race;
 }
 
-void Character :: setLevel(int leve) {
+void Character :: SetLevel(int leve) {
 	this->level = leve;
 }
 
-void Character :: setHealth(int health) {
+void Character :: SetHealth(int health) {
 	this->health = health;
 }
 
@@ -56,4 +56,5 @@ void Character :: Print() {
 	cout << "Race: " << this->race << endl;
 	cout << "Level: " << this->level << endl;
 	cout << "Health: " << this->health << endl;
+	cout << "---" << endl;
 }

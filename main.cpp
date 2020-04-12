@@ -10,9 +10,9 @@ using namespace std;
 
 int main() {
 
-	string filename;
-	cout<<"Enter input file name: " << endl;
-	cin >> filename;
+	string filename = "input.txt";
+	// cout<<"Enter input file name: " << endl;
+	// cin >> filename;
 	ifstream input(filename);
 
 	if (!input.is_open()) {

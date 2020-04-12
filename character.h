@@ -21,10 +21,10 @@ public:
 	int getHealth() const;
 
 	//setter functions
-	void setName(string);
-	void setRace(string);
-	void setLevel(int);
-	void setHealth(int);
+	void SetName(string);
+	void SetRace(string);
+	void SetLevel(int);
+	void SetHealth(int);
 
 	//other functions
 	virtual void Attack(Character *) = 0;
